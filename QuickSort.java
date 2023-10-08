@@ -1,5 +1,3 @@
-package redor;
-
 public class QuickSort {
     private static int partition(int[] arr, int low, int high) {
         int pivot = arr[high];
@@ -28,5 +26,3 @@ public class QuickSort {
 
     
 }
-    
-
