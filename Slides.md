@@ -1,21 +1,19 @@
 ---
 marp: true
 ---
-
-
----
-marp: true
----
-
-# Slide 1
-Content for slide 1
-
+# Markdown comparing algorithms
+## Bubble Sort VS Quick Sort
+######By the honorable Sophia LaForest
 ---
 
-# Slide 2
-Content for slide 2
+# What I did
+explain complexity plot
 
 ---
-
+#What I found
+give complexity plot
 
 ---
+#This means
+quick sort is better
+-- 
