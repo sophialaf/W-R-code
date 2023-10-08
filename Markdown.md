@@ -5,7 +5,7 @@
 In this analysis, I will compare the execution speed of two sorting algorithms: Bubble Sort and Quick Sort. The goal is to demonstrate that Quick Sort outperforms Bubble Sort in terms of execution time for a given dataset.
 
 
-### Bubble Sort
+### Bubble Sort Code
 
 ```java
 public class BubbleSort {
@@ -23,7 +23,8 @@ public class BubbleSort {
     }
 }
 ```
-### Peuso code for Bubble Sort:
+### Bubble Sort Peuso code:
+```java
 int array arr
 n = length of arr
 while i<n & j<(n-i+1){
@@ -31,7 +32,7 @@ while i<n & j<(n-i+1){
         int max = j
         increment j
 }
-
+```
 
 
 ###Quick Sort
@@ -67,6 +68,7 @@ public class QuickSort {
 }
 ```
 #### Pseudo code for Quick Sort:
+```java
 function QuickSort(arr, low, high)
     if low < high then
         pi = Partition(arr, low, high)
@@ -84,5 +86,8 @@ function Partition(arr, low, high)
 
     Swap(arr[i + 1], arr[high])
     return i + 1
+```
 
+###Results
+We can see that the quick sort is in fact faster based on the testing we did with _____
 
