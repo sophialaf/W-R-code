@@ -1,0 +1,88 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Random;
+
+public class SortComparison {
+
+    public static void main(String[] args) {
+        long[] bubbleTimes = new long[1000];
+        long[] quickTimes = new long[1000];
+
+        Random rand = new Random();
+
+        for (int i = 0; i < 1000; i++) {
+            int arrSize = rand.nextInt(10001 - 10) + 10; // Generate random array size between 10 and 10,000
+            int[] arr = new int[arrSize];
+            for (int j = 0; j < arrSize; j++) {
+                arr[j] = rand.nextInt(101); // Generate random numbers between 0 and 100
+            }
+
+            int[] arrCopy = arr.clone(); // Create a copy for fair comparison
+
+            long startTime = System.nanoTime();
+            bubblesort(arrCopy);
+            bubbleTimes[i] = System.nanoTime() - startTime;
+
+            arrCopy = arr.clone(); // Reset array
+            startTime = System.nanoTime();
+            quicksort(arrCopy, 0, arrCopy.length - 1);
+            quickTimes[i] = System.nanoTime() - startTime;
+        }
+
+        // Write data to CSV file
+        try {
+            FileWriter writer = new FileWriter("sorting_times.csv");
+            writer.write("Array Size,Bubble Sort Time,Quick Sort Time\n");
+
+            for (int i = 0; i < 1000; i++) {
+                writer.write(bubbleTimes[i] + "," + quickTimes[i] + "\n");
+            }
+
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void bubblesort(int[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void quicksort(int[] arr, int low, int high) {
+        if (low < high) {
+            int pi = partition(arr, low, high);
+
+            quicksort(arr, low, pi - 1);
+            quicksort(arr, pi + 1, high);
+        }
+    }
+
+    public static int partition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (arr[j] < pivot) {
+                i++;
+
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[high];
+        arr[high] = temp;
+
+        return i + 1;
+    }
+}
