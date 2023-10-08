@@ -5,13 +5,13 @@ public class Main {
 
         // Measure time for Bubble Sort
         long startTimeBubble = System.nanoTime();
-        BubbleSort.sort(dataset.clone());
+        BubbleSort.bubblesort(dataset.clone());
         long endTimeBubble = System.nanoTime();
         long timeElapsedBubble = endTimeBubble - startTimeBubble;
 
         // Measure time for Quick Sort
         long startTimeQuick = System.nanoTime();
-        QuickSort.sort(dataset.clone(), 0, dataset.length-1);
+        QuickSort.quicksort(dataset.clone(), 0, dataset.length-1);
         long endTimeQuick = System.nanoTime();
         long timeElapsedQuick = endTimeQuick - startTimeQuick;
 

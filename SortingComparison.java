@@ -20,12 +20,12 @@ public class SortingComparison {
             int[] arrCopy = arr.clone(); // Create a copy for fair comparison
 
             long startTime = System.nanoTime();
-            BubbleSort.sort(arrCopy);
+            BubbleSort.bubblesort(arrCopy);
             bubbleTime += System.nanoTime() - startTime;
 
             arrCopy = arr.clone(); // Reset array
             startTime = System.nanoTime();
-            QuickSort.sort(arrCopy, 0, arrCopy.length - 1);
+            QuickSort.quicksort(arrCopy, 0, arrCopy.length - 1);
             quickTime += System.nanoTime() - startTime;
         }
 

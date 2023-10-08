@@ -16,11 +16,11 @@ public class QuickSort {
         return i+1;
     }
 
-    public static void sort(int[] arr, int low, int high) {
+    public static void quicksort(int[] arr, int low, int high) {
         if (low < high) {
             int pi = partition(arr, low, high);
-            sort(arr, low, pi-1);
-            sort(arr, pi+1, high);
+            quicksort(arr, low, pi-1);
+            quicksort(arr, pi+1, high);
         }
     }
 
